@@ -1,0 +1,99 @@
+.deck-outer {
+  position: relative;
+  height: 28.125vw;
+  margin: 0 5rem 75px;
+  min-height: 200px;
+}
+.slider-container, .slick-list, .slick-track, .flashcard-slide { height: 100%; }
+.flashcard-content {
+  height: 100%;
+  background-color: #000;
+  color: #fff;
+  perspective: 1000px;
+}
+.flashcard-content.over .flip-container { transform: rotateY(180deg); }
+.flip-container {
+  width: 66.67%;
+  height: 100%;
+  margin: 0 auto;
+  transition: 0.6s;
+  transform-style: preserve-3d;
+  position: relative;
+}
+.flip-container .front, .flip-container .back {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.flip-container .front {
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+  z-index: 2;
+  transform: rotateY(0deg);
+}
+.flip-container .back {
+  transform: rotateY(180deg);
+  font-size: 1.5rem;
+}
+.flashcard-flipper {
+  position: absolute;
+  bottom: 0;
+  right: calc(16.67% - 45px);
+  width: 45px;
+  height: 45px;
+  z-index: 3;
+  background-image: url(refresh.png);
+  background-position: center;
+  background-repeat: no-repeat;
+  cursor: pointer;
+}
+.slick-prev, .slick-next {
+  width: 40px;
+  height: 40px;
+}
+.slick-prev:hover, .slick-next:hover { box-shadow: unset; }
+.slick-prev::before, .slick-next::before {
+  font-size: 40px;
+  color: #666;
+}
+.slick-prev { left: -45px; }
+.slick-next { right: -45px; }
+.shuffle-p {
+  text-align: center;
+  margin-top: 2rem;
+}
+.shuffle-p a {
+  color: #999;
+  border: 1px solid #999;
+  padding: 1rem 4rem;
+}
+.deck-tile {
+  display: inline-block;
+  width: 100%;
+}
+.deck-tile a {
+  display: flex;
+  padding: 30px;
+  align-items: center;
+}
+.deck-tile a .fa {
+  margin-right: 15px;
+  color: #ccc;
+}
+.deck-tile a img {
+  width: 100px;
+  height: 100px;
+  margin-right: 15px;
+}
+.deck-tile a:hover .fa { color: #00a6dc; }
+@media screen and (min-width: 978px) {
+  .deck-tile { width: calc(50% - 2px); }
+}
